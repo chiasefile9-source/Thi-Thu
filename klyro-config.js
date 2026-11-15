@@ -14,8 +14,8 @@ const KLYRO_CONFIG = {
   // Thông tin nhận thanh toán (Dùng để tạo VietQR tự động)
   payment: {
     bankId: "MB", // Mã ngân hàng (VD: MB, VCB, TCB, ACB, BIDV...)
-    accountNo: "0123456789", // Số tài khoản của bạn
-    accountName: "NGUYEN VAN A", // Tên chủ tài khoản (viết hoa không dấu)
+    accountNo: "0972809311", // Số tài khoản của bạn
+    accountName: "NGUYEN VAN TUYEN", // Tên chủ tài khoản (viết hoa không dấu)
     template: "compact2"
   },
 
