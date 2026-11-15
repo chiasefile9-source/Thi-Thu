@@ -9,7 +9,7 @@ const KLYRO_CONFIG = {
   },
   
   // Link Web App từ Google Apps Script (Mã.gs) của bạn
-  apiEndpoint: "THAY_LINK_WEB_APP_GOOGLE_APPS_SCRIPT_CUA_BAN_VAO_DAY",
+  apiEndpoint: "https://script.google.com/macros/s/AKfycbxWDbggmLFwmJljOBPBcCRn8Dex7E2Te00GTvYIHhIgv973nAxV4XAwO1coj607dlC1/exec",
 
   // Thông tin nhận thanh toán (Dùng để tạo VietQR tự động)
   payment: {
