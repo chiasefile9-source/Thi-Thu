@@ -4,75 +4,72 @@ const KLYRO_CONFIG = {
     name: "Klyro",
     domain: "https://ww.klyro.gt.tc",
     email: "chiasefile9@gmail.com",
-    facebook: "https://facebook.com", // Thay bằng link Fanpage Klyro của bạn
+    facebook: "https://facebook.com", // Thay link Fanpage Klyro của bạn
     credit: "Thiết kế bởi Klyro"
   },
   
-  // Link Web App từ Google Apps Script (Mã.gs) của bạn
-  apiEndpoint: "https://script.google.com/macros/s/AKfycbxWDbggmLFwmJljOBPBcCRn8Dex7E2Te00GTvYIHhIgv973nAxV4XAwO1coj607dlC1/exec",
+  // Dán link Web App từ Google Apps Script vào đây (đuôi /exec)
+  apiEndpoint: "Thttps://script.google.com/macros/s/AKfycbz_93ounv3q-aEx4jnSK6Qt4CWFwMGzKlqqwT82vKhFQtXqziRr_rK6djw2ZidcYgLL/exec",
 
-  // Thông tin nhận thanh toán (Dùng để tạo VietQR tự động)
   payment: {
-    bankId: "Zalopay", // Mã ngân hàng (VD: MB, VCB, TCB, ACB, BIDV...)
-    accountNo: "99ZP26294M80657068", // Số tài khoản của bạn
-    accountName: "NGUYEN VAN TUYEN", // Tên chủ tài khoản (viết hoa không dấu)
+    bankId: "MB", // Mã ngân hàng (MB, VCB, TCB, ACB, BIDV, TPB...)
+    accountNo: "0123456789", // Số tài khoản của bạn
+    accountName: "NGUYEN VAN A", // Tên chủ tài khoản viết hoa không dấu
     template: "compact2"
   },
 
-  // Danh sách các gói dịch vụ thiết kế Slide
   packages: [
     {
       id: "basic",
       name: "Gói Cơ Bản (Basic)",
-      price: 35000,
-      originalPrice: 50000,
+      price: 25000,
+      originalPrice: 35000,
       badge: "Tiết kiệm",
-      description: "Phù hợp cho bài thuyết trình nhóm ngắn, báo cáo nhanh.",
+      description: "Phù hợp bài thuyết trình nhóm ngắn, báo cáo môn học cơ bản.",
       features: [
-        "Tối đa 10 - 12 slides chuẩn bố cục",
-        "Chỉnh sửa màu sắc & font chữ đồng bộ",
+        "Từ 6 - 10 slides chuẩn bố cục, dễ nhìn",
+        "Phối màu & font chữ đồng bộ chủ đề",
         "Bàn giao file PowerPoint (.pptx) & PDF",
         "Hỗ trợ chỉnh sửa 1 lần miễn phí",
-        "Thời gian hoàn thành: 24h - 48h"
+        "Hoàn thành trong 24h - 36h"
       ]
     },
     {
       id: "pro",
       name: "Gói Chuyên Nghiệp (Pro)",
-      price: 65000,
-      originalPrice: 90000,
-      badge: "Phổ biến nhất",
+      price: 49000,
+      originalPrice: 70000,
+      badge: "Được chọn nhiều nhất",
       popular: true,
-      description: "Thiết kế sáng tạo, hiệu ứng mượt mà giúp gây ấn tượng mạnh.",
+      description: "Hiệu ứng chuyển cảnh mượt mà, giúp bài thuyết trình nổi bật.",
       features: [
-        "Tối đa 18 - 22 slides thiết kế độc quyền",
+        "Từ 12 - 18 slides thiết kế sáng tạo",
         "Hiệu ứng Morph & Animation chuyên sâu",
-        "Tặng kèm bộ icon & hình ảnh chất lượng cao",
+        "Tặng kèm bộ icon & hình ảnh sắc nét",
         "Hỗ trợ chỉnh sửa 3 lần miễn phí",
-        "Thời gian hoàn thành: 24h (Ưu tiên)"
+        "Ưu tiên hoàn thành trong 24h"
       ]
     },
     {
-      id: "premium",
+      id: "vip",
       name: "Gói Toàn Diện (VIP)",
-      price: 110000,
-      originalPrice: 150000,
+      price: 89000,
+      originalPrice: 120000,
       badge: "Trọn gói A-Z",
-      description: "Dành cho đồ án, cuộc thi lớn hoặc thuyết trình quan trọng.",
+      description: "Dành cho bài dự thi, đồ án lớn cần đầu tư chỉn chu nhất.",
       features: [
-        "Không giới hạn số lượng slides (tối đa 35)",
-        "Hỗ trợ tóm tắt & biên tập lại nội dung",
+        "Từ 20 - 30 slides thiết kế độc bản",
+        "Hỗ trợ tóm tắt & biên tập lại nội dung thô",
         "Thiết kế biểu đồ, infographic trực quan",
-        "Hỗ trợ chỉnh sửa không giới hạn đến khi ưng ý",
+        "Chỉnh sửa không giới hạn đến khi ưng ý",
         "Bàn giao siêu tốc trong 12h - 24h"
       ]
     }
   ],
 
-  // Danh sách mã giảm giá (Giftcode) kiểm tra nhanh ở Frontend
   giftcodes: {
-    "KLYRO10": { discount: 10000, minOrder: 30000, desc: "Giảm 10.000đ cho đơn từ 30k" },
-    "KLYRO20": { discount: 20000, minOrder: 50000, desc: "Giảm 20.000đ cho đơn từ 50k" },
-    "SINHVIEN": { discount: 15000, minOrder: 50000, desc: "Ưu đãi học sinh/sinh viên giảm 15k" }
+    "KLYRO5": { discount: 5000, minOrder: 25000, desc: "Giảm 5.000đ cho mọi đơn hàng" },
+    "KLYRO10": { discount: 10000, minOrder: 45000, desc: "Giảm 10.000đ cho đơn từ 45k" },
+    "KLYRO15": { discount: 15000, minOrder: 80000, desc: "Giảm 15.000đ cho đơn từ 80k" }
   }
 };
