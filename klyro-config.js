@@ -4,20 +4,22 @@ const KLYRO_CONFIG = {
     name: "Klyro",
     domain: "https://ww.klyro.gt.tc",
     email: "chiasefile9@gmail.com",
-    facebook: "https://facebook.com", // Thay link Fanpage Klyro của bạn
+    facebook: "https://facebook.com", // Thay bằng link Fanpage Klyro của bạn
     credit: "Thiết kế bởi Klyro"
   },
   
-  // Dán link Web App từ Google Apps Script vào đây (đuôi /exec)
-  apiEndpoint: "Thttps://script.google.com/macros/s/AKfycbz_93ounv3q-aEx4jnSK6Qt4CWFwMGzKlqqwT82vKhFQtXqziRr_rK6djw2ZidcYgLL/exec",
+  // Link Web App từ Google Apps Script của bạn
+  apiEndpoint: "https://script.google.com/macros/s/AKfycbz_93ounv3q-aEx4jnSK6Qt4CWFwMGzKlqqwT82vKhFQtXqziRr_rK6djw2ZidcYgLL/exec",
 
+  // Thông tin nhận thanh toán (Dùng để tạo VietQR tự động)
   payment: {
-    bankId: "MB", // Mã ngân hàng (MB, VCB, TCB, ACB, BIDV, TPB...)
+    bankId: "MB", // Mã ngân hàng (VD: MB, VCB, TCB, ACB, BIDV...)
     accountNo: "0123456789", // Số tài khoản của bạn
-    accountName: "NGUYEN VAN A", // Tên chủ tài khoản viết hoa không dấu
+    accountName: "NGUYEN VAN A", // Tên chủ tài khoản (viết hoa không dấu)
     template: "compact2"
   },
 
+  // Danh sách các gói dịch vụ thiết kế Slide
   packages: [
     {
       id: "basic",
@@ -67,6 +69,7 @@ const KLYRO_CONFIG = {
     }
   ],
 
+  // Danh sách mã giảm giá (Giftcode) kiểm tra nhanh ở Frontend
   giftcodes: {
     "KLYRO5": { discount: 5000, minOrder: 25000, desc: "Giảm 5.000đ cho mọi đơn hàng" },
     "KLYRO10": { discount: 10000, minOrder: 45000, desc: "Giảm 10.000đ cho đơn từ 45k" },
