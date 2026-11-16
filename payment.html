@@ -171,7 +171,6 @@
     function updateOrderSummary() {
       const selectedPkg = KLYRO_CONFIG.packages.find(p => p.id === pkgSelect.value);
       
-      // Kiểm tra lại điều kiện mã giảm giá nếu đổi gói
       if (appliedCode && KLYRO_CONFIG.giftcodes[appliedCode]) {
         const promo = KLYRO_CONFIG.giftcodes[appliedCode];
         if (selectedPkg.price < promo.minOrder) {
@@ -188,7 +187,6 @@
       document.getElementById('summary-discount').textContent = `-${formatVND(currentDiscount)}`;
       document.getElementById('summary-total').textContent = formatVND(finalTotal);
 
-      // Cập nhật VietQR tự động
       const { bankId, accountNo, accountName, template } = KLYRO_CONFIG.payment;
       const qrUrl = `https://img.vietqr.io/image/${bankId}-${accountNo}-${template}.png?amount=${finalTotal}&addInfo=${orderId}&accountName=${encodeURIComponent(accountName)}`;
       document.getElementById('vietqr-img').src = qrUrl;
@@ -201,7 +199,6 @@
       msgEl.classList.remove('hidden');
     }
 
-    // Xử lý áp dụng Giftcode
     document.getElementById('apply-code-btn').addEventListener('click', () => {
       const code = document.getElementById('giftcode-input').value.trim().toUpperCase();
       const selectedPkg = KLYRO_CONFIG.packages.find(p => p.id === pkgSelect.value);
@@ -228,41 +225,42 @@
     pkgSelect.addEventListener('change', updateOrderSummary);
     updateOrderSummary();
 
-    // Xử lý gửi Form đơn hàng
+    // Xử lý gửi Form đơn hàng qua URLSearchParams kết nối Google Apps Script
     document.getElementById('order-form').addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = document.getElementById('submit-btn');
       btn.disabled = true;
-      btn.innerHTML = `<span class="animate-spin">⏳</span> Đang xử lý đơn hàng...`;
+      btn.innerHTML = `<span class="animate-spin">⏳</span> Đang gửi đơn hàng...`;
 
       const selectedPkg = KLYRO_CONFIG.packages.find(p => p.id === pkgSelect.value);
-      const payload = {
-        orderId: orderId,
-        packageName: selectedPkg.name,
-        totalAmount: Math.max(0, selectedPkg.price - currentDiscount),
-        giftcode: appliedCode || "Không có",
-        customerName: document.getElementById('customer-name').value.trim(),
-        customerEmail: document.getElementById('customer-email').value.trim(),
-        customerContact: document.getElementById('customer-contact').value.trim(),
-        contentLink: document.getElementById('content-link').value.trim(),
-        note: document.getElementById('customer-note').value.trim(),
-        timestamp: new Date().toLocaleString('vi-VN')
-      };
+      
+      const formData = new URLSearchParams();
+      formData.append('orderId', orderId);
+      formData.append('packageName', selectedPkg.name);
+      formData.append('totalAmount', Math.max(0, selectedPkg.price - currentDiscount));
+      formData.append('giftcode', appliedCode || "Không có");
+      formData.append('customerName', document.getElementById('customer-name').value.trim());
+      formData.append('customerEmail', document.getElementById('customer-email').value.trim());
+      formData.append('customerContact', document.getElementById('customer-contact').value.trim());
+      formData.append('contentLink', document.getElementById('content-link').value.trim());
+      formData.append('note', document.getElementById('customer-note').value.trim());
 
       try {
-        if (KLYRO_CONFIG.apiEndpoint && KLYRO_CONFIG.apiEndpoint.startsWith('http')) {
-          await fetch(KLYRO_CONFIG.apiEndpoint, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
+        if (!KLYRO_CONFIG.apiEndpoint || !KLYRO_CONFIG.apiEndpoint.startsWith('http')) {
+          throw new Error("Chưa cấu hình link Web App trong klyro-config.js");
         }
+
+        await fetch(KLYRO_CONFIG.apiEndpoint, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: formData
+        });
+
         document.getElementById('modal-order-id').textContent = orderId;
         document.getElementById('success-modal').classList.remove('hidden');
         document.getElementById('success-modal').classList.add('flex');
       } catch (err) {
-        alert('Có lỗi kết nối mạng, vui lòng thử lại hoặc nhắn tin trực tiếp qua Fanpage Klyro nhé!');
+        alert('Lỗi gửi đơn: ' + err.message + '. Vui lòng kiểm tra lại cấu hình!');
       } finally {
         btn.disabled = false;
         btn.innerHTML = `<span>Xác Nhận Đã Chuyển Khoản & Gửi Đơn</span>`;
