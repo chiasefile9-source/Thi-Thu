@@ -19,60 +19,59 @@ const KLYRO_CONFIG = {
     template: "compact2"
   },
 
-  // Danh sách các gói dịch vụ thiết kế Slide
+  // Danh sách các gói dịch vụ thiết kế Slide (Đã tối ưu giá trị và thời gian)
   packages: [
     {
       id: "basic",
-      name: "Gói Cơ Bản (Basic)",
-      price: 25000,
-      originalPrice: 35000,
-      badge: "Tiết kiệm",
-      description: "Phù hợp bài thuyết trình nhóm ngắn, báo cáo môn học cơ bản.",
+      name: "Gói Tiêu Chuẩn (Standard)",
+      price: 45000,
+      originalPrice: 60000,
+      badge: "Phổ biến",
+      description: "Phù hợp bài thuyết trình nhóm, báo cáo môn học cần sự gọn gàng, nghiêm túc.",
       features: [
-        "Từ 6 - 10 slides chuẩn bố cục, dễ nhìn",
-        "Phối màu & font chữ đồng bộ chủ đề",
+        "Từ 10 - 15 slides bố cục chuẩn mực",
+        "Phối màu & font chữ đồng bộ chuyên nghiệp",
         "Bàn giao file PowerPoint (.pptx) & PDF",
-        "Hỗ trợ chỉnh sửa 1 lần miễn phí",
-        "Hoàn thành trong 24h - 36h"
+        "Hỗ trợ chỉnh sửa 2 lần miễn phí",
+        "Thời gian giao: 2 ngày (Không nhận gấp)"
       ]
     },
     {
       id: "pro",
       name: "Gói Chuyên Nghiệp (Pro)",
-      price: 49000,
-      originalPrice: 70000,
-      badge: "Được chọn nhiều nhất",
+      price: 85000,
+      originalPrice: 120000,
+      badge: "Khuyên dùng",
       popular: true,
-      description: "Hiệu ứng chuyển cảnh mượt mà, giúp bài thuyết trình nổi bật.",
+      description: "Đầu tư hình ảnh, hiệu ứng chuyển cảnh mượt mà để ghi điểm tuyệt đối.",
       features: [
-        "Từ 12 - 18 slides thiết kế sáng tạo",
+        "Từ 15 - 22 slides thiết kế sáng tạo, độc bản",
         "Hiệu ứng Morph & Animation chuyên sâu",
-        "Tặng kèm bộ icon & hình ảnh sắc nét",
+        "Tặng kèm bộ icon & hình ảnh minh họa cao cấp",
         "Hỗ trợ chỉnh sửa 3 lần miễn phí",
-        "Ưu tiên hoàn thành trong 24h"
+        "Thời gian giao: 2 - 3 ngày"
       ]
     },
     {
       id: "vip",
-      name: "Gói Toàn Diện (VIP)",
-      price: 89000,
-      originalPrice: 120000,
-      badge: "Trọn gói A-Z",
-      description: "Dành cho bài dự thi, đồ án lớn cần đầu tư chỉn chu nhất.",
+      name: "Gói Đồ Án / Cao Cấp (VIP)",
+      price: 139000,
+      originalPrice: 180000,
+      badge: "Đầu tư chỉn chu",
+      description: "Dành cho đồ án tốt nghiệp, bài thuyết trình quan trọng cần chiều sâu nội dung.",
       features: [
-        "Từ 20 - 30 slides thiết kế độc bản",
+        "Từ 25 - 35 slides thiết kế cao cấp A-Z",
         "Hỗ trợ tóm tắt & biên tập lại nội dung thô",
         "Thiết kế biểu đồ, infographic trực quan",
-        "Chỉnh sửa không giới hạn đến khi ưng ý",
-        "Bàn giao siêu tốc trong 12h - 24h"
+        "Chỉnh sửa không giới hạn đến khi hoàn thiện",
+        "Thời gian giao: 3 - 4 ngày"
       ]
     }
   ],
 
-  // Danh sách mã giảm giá (Giftcode) kiểm tra nhanh ở Frontend
+  // Danh sách mã giảm giá (Giftcode)
   giftcodes: {
-    "KLYRO5": { discount: 5000, minOrder: 25000, desc: "Giảm 5.000đ cho mọi đơn hàng" },
-    "KLYRO10": { discount: 10000, minOrder: 45000, desc: "Giảm 10.000đ cho đơn từ 45k" },
-    "KLYRO15": { discount: 15000, minOrder: 80000, desc: "Giảm 15.000đ cho đơn từ 80k" }
+    "KLYRO10": { discount: 10000, minOrder: 50000, desc: "Giảm 10.000đ cho đơn từ 50k" },
+    "KLYRO20": { discount: 20000, minOrder: 100000, desc: "Giảm 20.000đ cho đơn từ 100k" }
   }
 };
