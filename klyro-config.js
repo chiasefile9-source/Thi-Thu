@@ -19,7 +19,7 @@ const KLYRO_CONFIG = {
     template: "compact2"
   },
 
-  // Danh sách các gói dịch vụ thiết kế Slide (Đã tối ưu giá trị và thời gian)
+  // Danh sách các gói dịch vụ thiết kế Slide (Đã điều chỉnh thời gian giao hàng từ 1 ngày đến 1 tuần)
   packages: [
     {
       id: "basic",
@@ -33,7 +33,7 @@ const KLYRO_CONFIG = {
         "Phối màu & font chữ đồng bộ chuyên nghiệp",
         "Bàn giao file PowerPoint (.pptx) & PDF",
         "Hỗ trợ chỉnh sửa 2 lần miễn phí",
-        "Thời gian giao: 2 ngày (Không nhận gấp)"
+        "Thời gian giao: Nhanh nhất 1 ngày - Muộn nhất 3 ngày"
       ]
     },
     {
@@ -45,11 +45,11 @@ const KLYRO_CONFIG = {
       popular: true,
       description: "Đầu tư hình ảnh, hiệu ứng chuyển cảnh mượt mà để ghi điểm tuyệt đối.",
       features: [
-        "Từ 15 - 22 slides thiết kế sáng tạo, độc bản",
+        "From 15 - 22 slides thiết kế sáng tạo, độc bản",
         "Hiệu ứng Morph & Animation chuyên sâu",
         "Tặng kèm bộ icon & hình ảnh minh họa cao cấp",
         "Hỗ trợ chỉnh sửa 3 lần miễn phí",
-        "Thời gian giao: 2 - 3 ngày"
+        "Thời gian giao: 2 - 4 ngày"
       ]
     },
     {
@@ -64,7 +64,7 @@ const KLYRO_CONFIG = {
         "Hỗ trợ tóm tắt & biên tập lại nội dung thô",
         "Thiết kế biểu đồ, infographic trực quan",
         "Chỉnh sửa không giới hạn đến khi hoàn thiện",
-        "Thời gian giao: 3 - 4 ngày"
+        "Thời gian giao: 3 ngày - tối đa 1 tuần"
       ]
     }
   ],
