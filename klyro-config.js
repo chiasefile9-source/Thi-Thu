@@ -1,26 +1,38 @@
-// klyro-config.js
+// klyro-config.js (Bổ sung gói Free)
 const KLYRO_CONFIG = {
   brand: {
     name: "Klyro",
     domain: "https://ww.klyro.gt.tc",
     email: "chiasefile9@gmail.com",
-    facebook: "https://facebook.com", // Thay bằng link Fanpage Klyro của bạn
+    facebook: "https://facebook.com",
     credit: "Thiết kế bởi Klyro"
   },
   
-  // Link Web App từ Google Apps Script của bạn
   apiEndpoint: "https://script.google.com/macros/s/AKfycbyJzjsxpJdIeThkYE5ZdH7uMR-fekbeEzoe9_UHh6b5DuI3Uo89XBjm3FyaIOQ32cO1/exec",
 
-  // Thông tin nhận thanh toán (Dùng để tạo VietQR tự động)
   payment: {
-    bankId: "MB", // Mã ngân hàng (VD: MB, VCB, TCB, ACB, BIDV...)
-    accountNo: "0123456789", // Số tài khoản của bạn
-    accountName: "NGUYEN VAN A", // Tên chủ tài khoản (viết hoa không dấu)
+    bankId: "MB",
+    accountNo: "0123456789",
+    accountName: "NGUYEN VAN A",
     template: "compact2"
   },
 
-  // Danh sách các gói dịch vụ thiết kế Slide (Đã điều chỉnh thời gian giao hàng từ 1 ngày đến 1 tuần)
   packages: [
+    {
+      id: "free",
+      name: "Gói Trải Nghiệm Miễn Phí (Free)",
+      price: 0,
+      originalPrice: 35000,
+      badge: "Dùng thử 1 lần",
+      isFree: true, // Đánh dấu đây là gói miễn phí
+      description: "Dành cho khách hàng mới trải nghiệm chất lượng thiết kế slide của Klyro.",
+      features: [
+        "Từ 3 - 5 slides mẫu định hình phong cách",
+        "Bàn giao file PowerPoint (.pptx)",
+        "Giới hạn: Chỉ dùng 1 lần cho mỗi Gmail / SĐT",
+        "Thời gian giao: 2 - 3 ngày"
+      ]
+    },
     {
       id: "basic",
       name: "Gói Tiêu Chuẩn (Standard)",
@@ -45,7 +57,7 @@ const KLYRO_CONFIG = {
       popular: true,
       description: "Đầu tư hình ảnh, hiệu ứng chuyển cảnh mượt mà để ghi điểm tuyệt đối.",
       features: [
-        "From 15 - 22 slides thiết kế sáng tạo, độc bản",
+        "Từ 15 - 22 slides thiết kế sáng tạo, độc bản",
         "Hiệu ứng Morph & Animation chuyên sâu",
         "Tặng kèm bộ icon & hình ảnh minh họa cao cấp",
         "Hỗ trợ chỉnh sửa 3 lần miễn phí",
@@ -69,7 +81,6 @@ const KLYRO_CONFIG = {
     }
   ],
 
-  // Danh sách mã giảm giá (Giftcode)
   giftcodes: {
     "KLYRO10": { discount: 10000, minOrder: 50000, desc: "Giảm 10.000đ cho đơn từ 50k" },
     "KLYRO20": { discount: 20000, minOrder: 100000, desc: "Giảm 20.000đ cho đơn từ 100k" }
