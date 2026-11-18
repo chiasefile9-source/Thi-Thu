@@ -9,7 +9,7 @@ const KLYRO_CONFIG = {
   },
   
   // Link Web App từ Google Apps Script của bạn
-  apiEndpoint: "https://script.google.com/macros/s/AKfycbz_93ounv3q-aEx4jnSK6Qt4CWFwMGzKlqqwT82vKhFQtXqziRr_rK6djw2ZidcYgLL/exec",
+  apiEndpoint: "https://script.google.com/macros/s/AKfycbyJzjsxpJdIeThkYE5ZdH7uMR-fekbeEzoe9_UHh6b5DuI3Uo89XBjm3FyaIOQ32cO1/exec",
 
   // Thông tin nhận thanh toán (Dùng để tạo VietQR tự động)
   payment: {
