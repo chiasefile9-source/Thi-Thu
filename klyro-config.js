@@ -23,7 +23,7 @@ const KLYRO_CONFIG = {
   // Lưu ý: "Zalopay" không phải mã ngân hàng của VietQR nên QR sẽ không quét được.
   payment: {
     enabled: true,
-    bankId: "970422",
+    bankId: "MB",
     accountNo: "0705289367",
     accountName: "TRUONG CONG TAN",
     template: "compact2"
