@@ -89,7 +89,7 @@
         <div class="glass p-6 rounded-3xl">
           <h2 class="text-lg font-bold mb-4">Tóm Tắt Đơn Hàng</h2>
           <div class="space-y-3 text-sm border-b border-zinc-800 pb-4 mb-4">
-            <div class="flex justify-between"><span class="text-zinc-400">Mã đơn hàng:</span><span id="order-code" class="font-mono font-bold text-indigo-400"></span></div>
+            <div class="flex justify-between items-center"><span class="text-zinc-400">Mã đơn hàng:</span><span class="flex items-center gap-2"><span id="order-code" class="font-mono font-bold text-indigo-400 text-lg tracking-widest select-all"></span><button type="button" id="copy-code" class="px-2.5 py-1 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-xs font-semibold">Sao chép</button></span></div>
             <div class="flex justify-between gap-3"><span class="text-zinc-400 shrink-0">Gói dịch vụ:</span><span id="summary-pkg-name" class="font-semibold text-right">-</span></div>
             <div class="flex justify-between"><span class="text-zinc-400">Giá gốc:</span><span id="summary-subtotal">0đ</span></div>
             <div class="flex justify-between text-emerald-400"><span>Giảm giá:</span><span id="summary-discount">-0đ</span></div>
@@ -126,10 +126,10 @@
     const $ = (id) => document.getElementById(id);
     const formatVND = (n) => Number(n || 0).toLocaleString('vi-VN') + 'đ';
 
-    // Mã đơn khó đoán: KL + 8 ký tự ngẫu nhiên (bỏ các ký tự dễ nhầm I, O, 0, 1)
+    // Mã đơn khó đoán: KL + 5 ký tự ngẫu nhiên (bỏ các ký tự dễ nhầm I, O, 0, 1)
     function makeOrderId() {
       const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-      const bytes = new Uint8Array(8);
+      const bytes = new Uint8Array(5);
       crypto.getRandomValues(bytes);
       return 'KL' + Array.from(bytes, (b) => alphabet[b % alphabet.length]).join('');
     }
@@ -150,6 +150,11 @@
     pkgSelect.value = CFG.packages.some((p) => p.id === wanted) ? wanted : (CFG.packages.find((p) => p.popular) || CFG.packages[0]).id;
 
     $('order-code').textContent = orderId;
+    $('copy-code').addEventListener('click', async (e) => {
+      try { await navigator.clipboard.writeText(orderId); e.target.textContent = 'Đã chép ✓'; }
+      catch (_) { e.target.textContent = 'Hãy chép tay'; }
+      setTimeout(() => { e.target.textContent = 'Sao chép'; }, 1800);
+    });
 
     const getPkg = () => CFG.packages.find((p) => p.id === pkgSelect.value);
     const payEnabled = Boolean(CFG.payment && CFG.payment.enabled && CFG.payment.bankId && CFG.payment.accountNo);
@@ -309,7 +314,7 @@
           const total = Math.max(0, pkg.price - currentDiscount);
           let text;
           if (total === 0) text = 'Đơn miễn phí của bạn đã được duyệt. Klyro sẽ liên hệ khi bắt đầu làm. Hãy lưu lại mã đơn và email để tra cứu tiến độ.';
-          else if (payEnabled) text = 'Vui lòng chuyển khoản đúng số tiền và ghi nội dung chuyển khoản là mã đơn ở trên. Klyro sẽ xác nhận sau khi nhận được tiền.';
+          else if (payEnabled) text = 'Vui lòng chuyển khoản đúng số tiền, nội dung chuyển khoản chỉ ghi mã đơn ở trên (nếu lỡ ghi sai, bạn không cần lo: Klyro sẽ đối chiếu theo số tiền và thời gian, và liên hệ lại qua email). Klyro sẽ xác nhận sau khi nhận được tiền.';
           else text = 'Klyro sẽ gửi thông tin thanh toán qua liên hệ bạn đã nhập. Vui lòng chưa chuyển khoản trước khi nhận được thông tin đó. Hãy lưu lại mã đơn và email để tra cứu.';
           openModal('ok', 'Đã Nhận Đơn!', text);
         } else {
