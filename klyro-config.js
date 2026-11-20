@@ -24,8 +24,8 @@ const KLYRO_CONFIG = {
   payment: {
     enabled: true,
     bankId: "MB",
-    accountNo: "0705289367",
-    accountName: "TRUONG CONG TAN",
+    accountNo: "070123456",
+    accountName: "NGUYEN VAN A",
     template: "compact2"
   },
 
