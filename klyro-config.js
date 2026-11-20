@@ -14,7 +14,7 @@ const KLYRO_CONFIG = {
   },
 
   // Link Web App của Google Apps Script (Deploy > Web app)
-  apiEndpoint: "https://script.google.com/macros/s/AKfycbwvSnLdPZqF-IVdRruQunictfaThXpxmvZOYi8CYc8UTQ5Wj2JPJYril8EsR4eDtIAY/exec",
+  apiEndpoint: "https://script.google.com/macros/s/AKfycbxAalJOnpzy8aNOQEIZ6oIF751wjldQ_cc24v7zbufHhjso2cHF1Y_6Uw_xyKB-6yDN/exec",
 
   // Thông tin nhận thanh toán (VietQR).
   // enabled: false  -> trang thanh toán KHÔNG hiện mã QR, chỉ báo "Klyro sẽ gửi thông tin thanh toán qua liên hệ bạn đã nhập".
@@ -22,10 +22,10 @@ const KLYRO_CONFIG = {
   // (VD: MB, VCB, TCB, ACB, BIDV, TPB...), accountNo là số tài khoản, accountName là tên chủ TK (in hoa, không dấu).
   // Lưu ý: "Zalopay" không phải mã ngân hàng của VietQR nên QR sẽ không quét được.
   payment: {
-    enabled: false,
-    bankId: "",
-    accountNo: "",
-    accountName: "",
+    enabled: true,
+    bankId: "0705289367",
+    accountNo: "MB",
+    accountName: "Tct",
     template: "compact2"
   },
 
