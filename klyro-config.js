@@ -25,7 +25,7 @@ const KLYRO_CONFIG = {
     enabled: true,
     bankId: "0705289367",
     accountNo: "MB",
-    accountName: "Tct",
+    accountName: "TRUONG CONG TAN",
     template: "compact2"
   },
 
